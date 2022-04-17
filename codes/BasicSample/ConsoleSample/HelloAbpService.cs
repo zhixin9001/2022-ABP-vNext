@@ -1,6 +1,6 @@
 ﻿namespace ConsoleSample;
 
-public class HelloAbpService
+public class HelloAbpService : IHelloAbpService
 {
     public void SayHello()
     {
