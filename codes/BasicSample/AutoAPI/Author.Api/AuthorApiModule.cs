@@ -1,34 +1,23 @@
-﻿using AuthorApplication.Contract;
-using AuthorApplicationService;
-using BookApplicationService;
+﻿using AuthorApplicationService;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Autofac;
-using Volo.Abp.Http.Client;
 using Volo.Abp.Modularity;
 
-namespace Book.Api;
+namespace Author.Api;
 
 [DependsOn(typeof(AbpAspNetCoreMvcModule))]
 [DependsOn(typeof(AbpAutofacModule))]
-[DependsOn(typeof(BookApplicationModule))]
-[DependsOn(typeof(AbpHttpClientModule))] 
-// [DependsOn(typeof(AuthorApplicationModule))]
-[DependsOn(typeof(AuthorApplicationContractModule))]
-public class BookApiModule : AbpModule
+[DependsOn(typeof(AuthorApplicationModule))]
+public class AuthorApiModule : AbpModule
 {
+    
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-    //创建动态客户端代理
-    context.Services.AddHttpClientProxies(
-        typeof(AuthorApplicationContractModule).Assembly
-    );
-        
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
-            options.ConventionalControllers.Create(typeof(BookApplicationModule).Assembly);
-            // options.ConventionalControllers.Create(typeof(AuthorApplicationModule).Assembly);
+            options.ConventionalControllers.Create(typeof(AuthorApplicationModule).Assembly);
         });
         
         ConfigureSwaggerServices(context.Services);

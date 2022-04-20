@@ -7,16 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.0" />
+      <PackageReference Include="Volo.Abp.AspNetCore" Version="5.2.0" />
       <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.0" />
       <PackageReference Include="Volo.Abp.Autofac" Version="5.2.0" />
       <PackageReference Include="Volo.Abp.Core" Version="5.2.0" />
-      <PackageReference Include="Volo.Abp.Http.Client" Version="5.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AuthorApplication.Contract\AuthorApplication.Contract.csproj" />
-      <ProjectReference Include="..\BookApplicationService\BookApplicationService.csproj" />
+      <ProjectReference Include="..\AuthorApplicationService\AuthorApplicationService.csproj" />
     </ItemGroup>
 
 </Project>
